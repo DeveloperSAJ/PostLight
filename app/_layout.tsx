@@ -1,18 +1,16 @@
 import InitiallLayout from "@/components/initiallLayout";
-import { ClerkProvider } from "@clerk/clerk-expo";
-import { tokenCache } from "@clerk/clerk-expo/token-cache";
+import ClerkAndConvexProvider from "@/Providers/ClerkAndConvexProvider";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   return (
-    <ClerkProvider 
-    publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!}
-    tokenCache={tokenCache}>
+    <ClerkAndConvexProvider>
       <SafeAreaProvider>
         <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
-          <InitiallLayout/>
+          <InitiallLayout />
         </SafeAreaView>
       </SafeAreaProvider>
-    </ClerkProvider>
+    </ClerkAndConvexProvider>
   );
 }
+ 
